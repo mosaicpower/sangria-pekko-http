@@ -1,10 +1,10 @@
-package sangria.http.akka
+package sangria.http.pekko
 
 import java.net.URLEncoder
 import java.nio.charset.StandardCharsets
 
-import akka.http.scaladsl.model.ContentTypes
-import akka.http.scaladsl.model.HttpEntity
+import org.apache.pekko.http.scaladsl.model.ContentTypes
+import org.apache.pekko.http.scaladsl.model.HttpEntity
 import io.circe.Json
 
 object TestData {

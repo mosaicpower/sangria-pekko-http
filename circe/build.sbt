@@ -1,15 +1,15 @@
 import Dependencies._
 
-name := "sangria-akka-http-circe"
-organization := "org.sangria-graphql"
+name := "sangria-pekko-http-circe"
+organization := "com.mosaicpower"
 
 libraryDependencies ++= Seq(
   "io.circe" %% "circe-core" % circeVersion,
   "io.circe" %% "circe-generic" % circeVersion,
-  "de.heikoseeberger" %% "akka-http-circe" % "1.39.2",
+  "com.github.pjfanning" %% "pekko-http-circe" % "3.0.0",
   "org.sangria-graphql" %% "sangria-circe" % SangriaVersion.sangriaCirce,
-  "com.typesafe.akka" %% "akka-http" % akkaHttpVersion % Test,
-  "com.typesafe.akka" %% "akka-stream-testkit" % akkaVersion % Test,
-  "com.typesafe.akka" %% "akka-http-testkit" % akkaHttpVersion % Test,
+  "org.apache.pekko" %% "pekko-http" % pekkoHttpVersion % Test,
+  "org.apache.pekko" %% "pekko-stream-testkit" % pekkoVersion % Test,
+  "org.apache.pekko" %% "pekko-http-testkit" % pekkoHttpVersion % Test,
   "io.circe" %% "circe-optics" % circeOpticsVersion % Test
 )

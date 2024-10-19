@@ -1,5 +1,5 @@
-package sangria.http.akka
-import akka.http.scaladsl.model.StatusCodes.{BadRequest, UnprocessableEntity}
+package sangria.http.pekko
+import org.apache.pekko.http.scaladsl.model.StatusCodes.{BadRequest, UnprocessableEntity}
 import io.circe.Json
 import org.scalatest.flatspec.AnyFlatSpec
 

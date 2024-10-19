@@ -1,15 +1,15 @@
-package sangria.http.akka
+package sangria.http.pekko
 
-import akka.http.scaladsl.model.StatusCodes._
-import akka.http.scaladsl.server.Directives._
-import akka.http.scaladsl.server.Route
-import akka.http.scaladsl.testkit.ScalatestRouteTest
+import org.apache.pekko.http.scaladsl.model.StatusCodes._
+import org.apache.pekko.http.scaladsl.server.Directives._
+import org.apache.pekko.http.scaladsl.server.Route
+import org.apache.pekko.http.scaladsl.testkit.ScalatestRouteTest
 import org.scalatest.{Assertion, Suite}
 import org.scalatest.flatspec.AnyFlatSpec
 import io.circe.Json
 import sangria.parser.SyntaxError
-import sangria.http.akka.SangriaAkkaHttp._
-import sangria.http.akka.circe.CirceHttpSupport
+import sangria.http.pekko.SangriaPekkoHttp._
+import sangria.http.pekko.circe.CirceHttpSupport
 
 import scala.concurrent.ExecutionContext
 import scala.util.{Failure, Success}

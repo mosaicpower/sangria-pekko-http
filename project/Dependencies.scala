@@ -1,6 +1,6 @@
 object Dependencies {
-  val akkaVersion = "2.6.20"
-  val akkaHttpVersion = "10.2.10"
+  val pekkoVersion = "1.1.2"
+  val pekkoHttpVersion = "1.1.0"
   val circeVersion = "0.14.9"
   val circeOpticsVersion = "0.14.1"
   object SangriaVersion {

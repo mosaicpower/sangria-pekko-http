@@ -1,35 +1,22 @@
-package sangria.http.akka
+package sangria.http.pekko
 
-import akka.http.scaladsl.model.MediaTypes._
-import akka.http.scaladsl.server.Directives._
-import akka.http.scaladsl.server.{
-  Directive,
-  ExceptionHandler,
-  MalformedQueryParamRejection,
-  MalformedRequestContentRejection,
-  RejectionHandler,
-  Route,
-  StandardRoute
-}
-import akka.http.scaladsl.unmarshalling.{FromEntityUnmarshaller, FromStringUnmarshaller}
-import Util.explicitlyAccepts
+import org.apache.pekko.http.javadsl.server.RequestEntityExpectedRejection
+import org.apache.pekko.http.scaladsl.marshalling.ToEntityMarshaller
+import org.apache.pekko.http.scaladsl.model.MediaTypes._
+import org.apache.pekko.http.scaladsl.model.StatusCodes.{BadRequest, InternalServerError, UnprocessableEntity}
+import org.apache.pekko.http.scaladsl.server.Directives._
+import org.apache.pekko.http.scaladsl.server._
+import org.apache.pekko.http.scaladsl.unmarshalling.{FromEntityUnmarshaller, FromStringUnmarshaller}
 import sangria.ast.Document
+import sangria.http.pekko.GraphQLRequestUnmarshaller._
+import sangria.http.pekko.Util.explicitlyAccepts
 import sangria.parser.{QueryParser, SyntaxError}
-import GraphQLRequestUnmarshaller._
-import akka.http.javadsl.server.RequestEntityExpectedRejection
-import akka.http.scaladsl.marshalling.ToEntityMarshaller
-import akka.http.scaladsl.model.StatusCodes.{
-  BadRequest,
-  InternalServerError,
-  OK,
-  UnprocessableEntity
-}
 
 import scala.util.control.NonFatal
 import scala.util.{Failure, Success, Try}
 
-trait SangriaAkkaHttp[Input] {
-  import SangriaAkkaHttp._
+trait SangriaPekkoHttp[Input] {
+  import SangriaPekkoHttp._
 
   type GQLRequestHandler = PartialFunction[Try[GraphQLRequest[Input]], StandardRoute]
   implicit def errorMarshaller: ToEntityMarshaller[GraphQLErrorResponse]
@@ -179,7 +166,7 @@ trait SangriaAkkaHttp[Input] {
     }
 }
 
-object SangriaAkkaHttp {
+object SangriaPekkoHttp {
   final case class MalformedRequest(
       private val message: String = "Your request could not be processed",
       private val cause: Throwable = None.orNull

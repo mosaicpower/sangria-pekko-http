@@ -1,4 +1,4 @@
-package sangria.http.akka
+package sangria.http.pekko
 
 import sangria.ast.Document
 

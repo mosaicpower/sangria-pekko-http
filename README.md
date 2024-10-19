@@ -1,13 +1,12 @@
-# Sangria akka-http Library
+# Sangria pekko-http Library
 
-![Continuous Integration](https://github.com/sangria-graphql/sangria-akka-http/workflows/Continuous%20Integration/badge.svg)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.sangria-graphql/sangria-akka-http-core_2.13/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.sangria-graphql/sangria-akka-http-core_2.13)
 [![License](http://img.shields.io/:license-Apache%202-brightgreen.svg)](http://www.apache.org/licenses/LICENSE-2.0.txt)
-[![Join the chat at https://gitter.im/sangria-graphql/sangria](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/sangria-graphql/sangria?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
 A reference, batteries included, [Sangria](https://github.com/sangria-graphql/sangria) [GraphQL](https://graphql.org) 
-server implementation using [akka-http](https://github.com/akka/akka-http).
+server implementation using [pekko-http](https://github.com/apache/pekko-http).
+
+This is a fork of [sangria-akka-http](https://github.com/sangria-graphql/sangria-akka-http) that replaces the Akka dependency with Pekko.
 
 Various json libraries are supported:
 - [circe](https://github.com/circe/circe)
@@ -18,16 +17,12 @@ Various json libraries are supported:
 
 Add this to your dependencies:
 ```sbt
-libraryDependencies += "org.sangria-graphql" %% "sangria-akka-http-core" % "2.0"
+libraryDependencies += "com.mosaicpower" %% "sangria-pekko-http-core" % "0.5.0"
 // And choose your desired json library support:
-libraryDependencies += "org.sangria-graphql" %% "sangria-akka-http-circe" % "2.0"
+libraryDependencies += "com.mosaicpower" %% "sangria-pekko-http-circe" % "0.5.0"
 ```
 
-```scala
-include magic
-
-val server = ???
-```
+*Note*: as of now, no artifact has yet been published.
 
 For a full example, consult the [Sangria Akka Http example project](https://github.com/sangria-graphql/sangria-akka-http-example).
  
