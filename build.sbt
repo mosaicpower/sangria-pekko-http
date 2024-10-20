@@ -1,3 +1,5 @@
+import xerial.sbt.Sonatype.sonatypeCentralHost
+
 ThisBuild / name := "sangria-pekko-http"
 ThisBuild / organization := "com.mosaicpower"
 
@@ -12,12 +14,20 @@ ThisBuild / developers := List(
     "Nick Hudkins",
     "nick+sangria@nickhudkins.com",
     url("https://nickhudkins.com/")
-  )
+  ),
   // TODO: Add Anže in here!
+  Developer(
+    "bmironenko",
+    "Basil Mironenko",
+    "basilm@mosaicpower.com",
+    url("https://mosaicpower.com/")
+  )
 )
 
 ThisBuild / crossScalaVersions := Seq("2.12.18", "2.13.14")
 ThisBuild / scalaVersion := crossScalaVersions.value.last
+
+ThisBuild / sonatypeCredentialHost := sonatypeCentralHost
 
 ThisBuild / githubWorkflowPublishTargetBranches += RefPredicate.StartsWith(Ref.Tag("v"))
 ThisBuild / githubWorkflowBuildPreamble ++= List(
@@ -45,6 +55,7 @@ lazy val circe = (project in file("circe"))
 lazy val root = (project in file("."))
   .aggregate(core, circe)
   .settings(
+
     name := "sangria-pekko-http",
     publishArtifact := false
   )

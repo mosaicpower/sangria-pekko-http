@@ -36,7 +36,9 @@ trait CirceHttpSupport extends SangriaPekkoHttp[Json] with FailFastCirceSupport 
     unmarshaller
 
   // TODO: This seems... awkward?
-  import PredefinedFromStringUnmarshallers.{_fromStringUnmarshallerFromByteStringUnmarshaller ⇒ stringFromByteStringUm}
+  import PredefinedFromStringUnmarshallers.{
+    _fromStringUnmarshallerFromByteStringUnmarshaller ⇒ stringFromByteStringUm
+  }
   override implicit def variablesUnmarshaller: FromStringUnmarshaller[Json] =
     stringFromByteStringUm(fromByteStringUnmarshaller[Json])
 

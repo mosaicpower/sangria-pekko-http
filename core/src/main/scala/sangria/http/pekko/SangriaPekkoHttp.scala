@@ -3,7 +3,11 @@ package sangria.http.pekko
 import org.apache.pekko.http.javadsl.server.RequestEntityExpectedRejection
 import org.apache.pekko.http.scaladsl.marshalling.ToEntityMarshaller
 import org.apache.pekko.http.scaladsl.model.MediaTypes._
-import org.apache.pekko.http.scaladsl.model.StatusCodes.{BadRequest, InternalServerError, UnprocessableEntity}
+import org.apache.pekko.http.scaladsl.model.StatusCodes.{
+  BadRequest,
+  InternalServerError,
+  UnprocessableEntity
+}
 import org.apache.pekko.http.scaladsl.server.Directives._
 import org.apache.pekko.http.scaladsl.server._
 import org.apache.pekko.http.scaladsl.unmarshalling.{FromEntityUnmarshaller, FromStringUnmarshaller}
