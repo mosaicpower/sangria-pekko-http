@@ -37,7 +37,10 @@ ThisBuild / githubWorkflowTargetTags ++= Seq("v*")
 
 ThisBuild / githubWorkflowPublish := Seq(
   WorkflowStep.Sbt(
-    List("ci-release"),
+    List(
+      "-Dsun.net.client.defaultReadTimeout=60000",
+      "-Dsun.net.client.defaultConnectTimeout=60000",
+      "ci-release"),
     env = Map(
       "PGP_PASSPHRASE" -> "${{ secrets.PGP_PASSPHRASE }}",
       "PGP_SECRET" -> "${{ secrets.PGP_SECRET }}",
